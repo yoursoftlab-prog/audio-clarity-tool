@@ -1,0 +1,47 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // First-time profile creation must start as premium: false.
+      allow create: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.premium == false;
+
+      // Client may update displayName/photoURL/lastLogin, but the
+      // premium field must stay exactly what it already was — it
+      // can only change via the Admin SDK (Cloud Function), which
+      // bypasses these rules entirely.
+      allow update: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.premium == resource.data.premium;
+
+      // Nobody deletes their own profile from the client. If you
+      // ever need account deletion, do it via a Cloud Function so
+      // you can also clean up usage/{uid} and any billing records
+      // in the same transaction.
+      allow delete: if false;
+    }
+
+    match /usage/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // First write must start the counter at 0.
+      allow create: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.freeUsed == 0;
+
+      // freeUsed may only stay the same or increase — a user can
+      // update deviceFingerprint/lastUsed freely, but can never roll
+      // freeUsed back down to reset their own trial.
+      allow update: if request.auth != null
+                    && request.auth.uid == userId
+                    && request.resource.data.freeUsed >= resource.data.freeUsed;
+
+      allow delete: if false;
+    }
+  }
+}

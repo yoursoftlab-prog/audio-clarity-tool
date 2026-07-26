@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Audio Clarity — AI Audio Noise Removal &amp; Transcription</title>
+
+<!-- SEO -->
+<meta name="description" content="Audio Clarity removes background noise, hiss and hum from your recordings and generates a clean transcript — free to try, no software to install."/>
+<meta name="keywords" content="audio noise removal, audio enhancer, remove background noise, hiss removal, audio transcription, clean up audio online, denoise audio"/>
+<link rel="canonical" href="https://www.yoursoftlab.com/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Audio Clarity — AI Audio Noise Removal &amp; Transcription"/>
+<meta property="og:description" content="Remove noise, boost clarity, and get a clean transcript from any recording — free to try."/>
+<meta property="og:url" content="https://www.yoursoftlab.com/"/>
+<meta property="og:image" content="https://www.yoursoftlab.com/og-image.png"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Audio Clarity — AI Audio Noise Removal &amp; Transcription"/>
+<meta name="twitter:description" content="Remove noise, boost clarity, and get a clean transcript from any recording — free to try."/>
+<meta name="twitter:image" content="https://www.yoursoftlab.com/og-image.png"/>
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="unauthorized-overlay" style="display:none;position:fixed;inset:0;background:#0F172A;z-index:9999;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px">
+  <div style="font-size:40px;margin-bottom:14px">🚫</div>
+  <div style="font-weight:700;font-size:18px;color:#e2e8f0;margin-bottom:6px">Unauthorized Copy</div>
+  <div style="font-size:13px;color:#64748b;max-width:340px">Please use the official Audio Clarity website.</div>
+</div>
+<div id="header">
+  <div id="header-left">
+    <div id="logo-icon">🎙️</div>
+    <div>
+      <div id="logo-name">Audio Clarity</div>
+      <div id="logo-sub">AI-powered audio enhancement</div>
+    </div>
+  </div>
+  <div id="header-right" style="display:flex;align-items:center;gap:10px">
+    <div id="usage-badge">
+      <div id="badge-wrap">
+        <svg width="34" height="34" viewBox="0 0 34 34">
+          <circle cx="17" cy="17" r="14" fill="none" stroke="#1e3a5f" stroke-width="3"/>
+          <circle id="badge-arc" cx="17" cy="17" r="14" fill="none" stroke="#3B82F6" stroke-width="3"
+            stroke-dasharray="87.96" stroke-dashoffset="87.96" stroke-linecap="round"
+            transform="rotate(-90 17 17)" style="transition:stroke-dashoffset .4s"/>
+        </svg>
+        <span id="badge-num">–</span>
+      </div>
+      <div>
+        <div id="badge-top">FREE PLAN</div>
+        <div id="badge-bot">Sign in to start</div>
+      </div>
+    </div>
+    <button id="signin-btn" style="display:flex;align-items:center;gap:8px;background:#0F2744;border:1px solid #1e3a5f;border-radius:10px;padding:8px 14px;color:#e2e8f0;font-size:13px;font-weight:600;cursor:pointer">
+      <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.9 32.9 29.4 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5 43.5 34.8 43.5 24c0-1.2-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4.5 24 4.5c-7.7 0-14.4 4.4-17.7 10.2z"/><path fill="#4CAF50" d="M24 43.5c5.4 0 10.3-1.9 14-5.2l-6.5-5.5c-2 1.5-4.6 2.4-7.5 2.4-5.4 0-9.9-3.6-11.5-8.5l-6.6 5.1C9.5 39 16.2 43.5 24 43.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.4 5.6-6.4 7.1l6.5 5.5c-.5.4 7.1-5.2 7.1-16.1 0-1.2-.1-2.4-.4-3.5z"/></svg>
+      Sign in
+    </button>
+    <div id="user-chip" style="display:none;align-items:center;gap:8px;background:#0F2744;border:1px solid #1e3a5f;border-radius:10px;padding:6px 10px">
+      <img id="user-avatar" src="" style="width:26px;height:26px;border-radius:50%;display:none">
+      <div>
+        <div id="user-name" style="font-size:12px;font-weight:600;color:#e2e8f0;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
+        <div id="premium-pill" style="display:none;font-size:10px;color:#fbbf24;font-weight:700">⭐ Premium</div>
+      </div>
+      <button id="signout-btn" style="background:none;border:none;color:#475569;cursor:pointer;font-size:14px;padding:0 2px">⏻</button>
+    </div>
+  </div>
+</div>
+
+<div id="main">
+
+  <!-- IDLE -->
+  <div id="idle-section">
+    <div id="idle-title">
+      <h1>Enhance Your Audio</h1>
+      <p>Upload audio to remove noise, boost clarity, and get a clean transcript</p>
+    </div>
+    <div id="signin-gate" style="display:none;border:1px solid #1e3a5f;background:#0a1628;border-radius:14px;padding:22px;text-align:center;margin-bottom:16px">
+      <div style="font-size:26px;margin-bottom:8px">🔒</div>
+      <div style="font-weight:700;color:#e2e8f0;margin-bottom:4px">Sign in to enhance audio</div>
+      <div style="font-size:13px;color:#64748b">Please sign in with Google to start your 5 free enhancements.</div>
+    </div>
+    <div id="connection-error-banner" style="display:none;border:1px solid #7f1d1d;background:#2a0f0f;border-radius:12px;padding:14px 16px;margin-bottom:16px;text-align:center;color:#fca5a5;font-size:13px;font-weight:600">
+      Unable to connect to the server. Please check your internet connection and try again.
+    </div>
+    <div id="upgrade-banner" style="display:none;border:1px solid #7c3aed40;background:linear-gradient(135deg,#1e1b4b,#0F172A);border-radius:14px;padding:20px;text-align:center;margin-bottom:16px">
+      <div style="font-size:26px;margin-bottom:8px">✨</div>
+      <div style="font-weight:700;color:#e2e8f0;margin-bottom:4px">Your free trial has expired</div>
+      <div style="font-size:13px;color:#94a3b8;margin-bottom:14px">Upgrade to Premium for unlimited enhancements + HD export</div>
+      <button id="upgrade-btn" style="padding:11px 22px;border-radius:10px;border:none;background:linear-gradient(90deg,#8B5CF6,#06B6D4);color:#fff;font-weight:700;font-size:14px;cursor:pointer">
+        Upgrade for <span id="upgrade-price">$1.99</span>
+      </button>
+    </div>
+    <div id="drop-zone">
+      <div id="dz-icon">🎧</div>
+      <div id="dz-label">Drop audio file here or click to browse</div>
+      <div id="dz-sub">MP3, WAV, OGG, M4A, AAC, FLAC · Max 50MB</div>
+      <input id="file-input" type="file" accept="audio/*"/>
+    </div>
+    <div id="error-msg"></div>
+    <div id="file-chip">
+      <span style="font-size:22px;flex-shrink:0">🎵</span>
+      <span id="fc-name"></span>
+      <span id="fc-size"></span>
+      <button id="fc-rm">✕</button>
+    </div>
+    <div id="hiss-toggle-row" style="display:flex;align-items:flex-start;gap:9px;background:#0a1628;border:1px solid #1e3a5f;border-radius:10px;padding:11px 14px;margin-bottom:16px">
+      <input type="checkbox" id="toggle-hiss" checked style="width:16px;height:16px;margin-top:2px;accent-color:#3B82F6;cursor:pointer;flex-shrink:0">
+      <label for="toggle-hiss" style="cursor:pointer;user-select:none">
+        <div style="font-size:13px;color:#93c5fd;font-weight:600">Auto Start Hiss Removal</div>
+        <div style="font-size:11px;color:#64748b;margin-top:2px">Detects hiss in the first few seconds and cleans just that part — the rest of the audio is left untouched by this step</div>
+      </label>
+    </div>
+    <button id="process-btn" disabled>✨ Enhance &amp; Transcribe</button>
+  </div>
+
+  <!-- PROCESSING -->
+  <div id="processing-section">
+    <div id="wave-bars"></div>
+    <div id="wave-label">PROCESSING</div>
+    <div id="step-label">Starting…</div>
+    <div id="prog-track"><div id="prog-fill"></div></div>
+    <div id="prog-pct">0% complete</div>
+  </div>
+
+  <!-- DONE -->
+  <div id="done-section">
+    <div id="result-header">
+      <div id="result-status"></div>
+      <button id="reset-btn">Process another</button>
+    </div>
+    <div id="tx-grid">
+      <div class="tc">
+        <div class="tc-top"><span class="tc-lbl">RAW TRANSCRIPT</span><button class="tc-copy" id="copy-raw">Copy</button></div>
+        <div class="tc-body" id="raw-text"></div>
+      </div>
+      <div class="tc">
+        <div class="tc-top"><span class="tc-lbl">ENHANCED &amp; CLARIFIED</span><button class="tc-copy" id="copy-enh">Copy</button></div>
+        <div class="tc-body" id="enh-text"></div>
+      </div>
+    </div>
+    <div id="stats-grid">
+      <div class="stat"><div class="stat-ic">📝</div><div class="stat-v" id="stat-words">—</div><div class="stat-l">Words</div></div>
+      <div class="stat"><div class="stat-ic">✨</div><div class="stat-v">High</div><div class="stat-l">Clarity boost</div></div>
+      <div class="stat"><div class="stat-ic">🔇</div><div class="stat-v">Yes</div><div class="stat-l">Noise removed</div></div>
+    </div>
+    <div id="audio-section">
+      <div id="audio-section-title">🎙️ AI VOICE RESTORATION</div>
+      <div id="feature-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;background:#0F2744;border:1px solid #1e3a5f;border-radius:10px;padding:12px 14px"></div>
+      <div id="feature-caveat" style="font-size:11px;color:#64748b;line-height:1.5"></div>
+      <div id="audio-section-title2" style="font-size:12px;color:#60A5FA;font-weight:700;letter-spacing:.5px">🎵 AUDIO FILES</div>
+      <!-- Original -->
+      <div class="acard">
+        <div class="acard-head">
+          <div class="acard-ic">🎙️</div>
+          <div class="acard-info">
+            <div class="acard-title">Original Audio</div>
+            <div class="acard-sub" id="orig-meta">—</div>
+          </div>
+        </div>
+        <div class="player" id="player-orig">
+          <button class="play-btn" id="play-orig" disabled>▶</button>
+          <span class="p-time" id="cur-orig">0:00</span>
+          <div class="p-track" id="track-orig">
+            <div class="p-fill p-fill-orig" id="fill-orig"></div>
+            <div class="p-thumb" id="thumb-orig"></div>
+          </div>
+          <span class="p-time" id="dur-orig">0:00</span>
+        </div>
+      </div>
+      <!-- Enhanced -->
+      <div class="acard acard-enh">
+        <div class="acard-head">
+          <div class="acard-ic">✨</div>
+          <div class="acard-info">
+            <div class="acard-title">Enhanced Audio</div>
+            <div class="acard-sub" id="enh-sub">Noise reduced · Clarity boosted · Normalized</div>
+          </div>
+        </div>
+        <div class="enh-status" id="enh-status">
+          <div class="spinner"></div><span id="enh-status-text">Processing audio…</span>
+        </div>
+        <div class="player" id="player-enh" style="display:none">
+          <button class="play-btn enh" id="play-enh" disabled>▶</button>
+          <span class="p-time" id="cur-enh">0:00</span>
+          <div class="p-track" id="track-enh">
+            <div class="p-fill p-fill-enh" id="fill-enh"></div>
+            <div class="p-thumb" id="thumb-enh"></div>
+          </div>
+          <span class="p-time" id="dur-enh">0:00</span>
+        </div>
+      </div>
+    </div>
+    <div id="dl-bar">
+      <button class="dl-btn dl-btn-pri" id="dl-report">⬇ Full Report (PDF)</button>
+      <button class="dl-btn dl-btn-sec" id="dl-enh-txt">⬇ Enhanced Transcript</button>
+      <button class="dl-btn dl-btn-sec" id="dl-raw-txt">⬇ Raw Transcript</button>
+    </div>
+  </div>
+
+</div>
+
+<footer id="site-footer" style="margin-top:40px;padding:24px 16px;border-top:1px solid #1e3a5f;text-align:center;font-size:12px;color:#64748b">
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:10px">
+    <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a>
+    <a href="/terms.html" style="color:#94a3b8;text-decoration:none">Terms of Service</a>
+    <a href="/refund.html" style="color:#94a3b8;text-decoration:none">Refund Policy</a>
+    <a href="mailto:support@yoursoftlab.com" style="color:#94a3b8;text-decoration:none">Contact</a>
+  </div>
+  <div>© <span id="footer-year"></span> Audio Clarity · yoursoftlab.com. All rights reserved.</div>
+</footer>
+
+<script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
