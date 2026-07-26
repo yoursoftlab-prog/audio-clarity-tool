@@ -67,6 +67,28 @@ export function isConfigured() {
 export function runOriginGate() {
   const host = window.location.hostname;
 
+  console.log("Current hostname:", host);
+  console.log("Allowed hosts:", allowedHosts);
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    return;
+  }
+
+  if (allowedHosts.includes(host)) {
+    console.log("Host allowed");
+    return;
+  }
+
+  console.log("Host blocked");
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("unauthorized-overlay");
+    if (overlay) {
+      overlay.style.display = "flex";
+    }
+  });
+}
+
   // Allow local development
   if (host === "localhost" || host === "127.0.0.1") {
     return;
