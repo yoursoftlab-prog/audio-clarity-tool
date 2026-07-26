@@ -27,9 +27,12 @@ export const firebaseConfig = {
 // Treat this purely as a friendly speed bump.
 //export const allowedHosts = ["https://github.com/yoursoftlab-prog/audio_clarity_tool"];
 export const allowedHosts = [
-  "yoursoftlab.com",
-  "www.yoursoftlab.com",
-  "yoursoftlab-prog.github.io"
+  "yoursoftlab-f7246.web.app",
+  "yoursoftlab-f7246.firebaseapp.com",
+  "audioclarity.in",
+  "www.audioclarity.in",
+  "localhost",
+  "127.0.0.1"
 ];
 // Number of free enhancements a signed-in, non-premium account gets.
 // Tracked in Firestore at usage/{uid} — see the main app script.
