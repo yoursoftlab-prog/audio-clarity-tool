@@ -64,23 +64,55 @@ export function isConfigured() {
     //});
   //}
 //}
+//export function runOriginGate() {
+  //const host = window.location.hostname;
+
+  //console.log("Current hostname:", host);
+
+  //if (
+    //host === "localhost" ||
+    //host === "127.0.0.1" ||
+    //allowedHosts.includes(host)
+  //) {
+    //return;
+  //}
+
+  //window.addEventListener("DOMContentLoaded", () => {
+    //const overlay = document.getElementById("unauthorized-overlay");
+    //if (overlay) {
+      //overlay.style.display = "flex";
+    //}
+  //});
+//}
 export function runOriginGate() {
-  const host = window.location.hostname;
+    const host = location.hostname;
 
-  console.log("Current hostname:", host);
-
-  if (
-    host === "localhost" ||
-    host === "127.0.0.1" ||
-    allowedHosts.includes(host)
-  ) {
-    return;
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("unauthorized-overlay");
-    if (overlay) {
-      overlay.style.display = "flex";
+    if (
+        host === "localhost" ||
+        host === "127.0.0.1" ||
+        allowedHosts.includes(host)
+    ) {
+        return;
     }
-  });
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.body.innerHTML = `
+        <div style="
+            position:fixed;
+            inset:0;
+            background:#0F172A;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            color:white;
+            font-family:sans-serif;
+            z-index:999999;">
+            <h1>🚫 Unauthorized Copy</h1>
+            <p>Please use the official Audio Clarity website.</p>
+        </div>`;
+    });
+
+    throw new Error("Unauthorized Host");
 }
