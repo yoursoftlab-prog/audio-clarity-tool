@@ -41,14 +41,25 @@ const ANTHROPIC_API_KEY = defineSecret("ANTHROPIC_API_KEY");
 // Must match firebase-config.js -> allowedHosts, so we only ever
 // answer real front-end origins. (Server-side, this is enforced —
 // unlike the client-side "speed bump" version in firebase-config.js.)
+//const ALLOWED_ORIGINS = new Set([
+  //"https://yoursoftlab.com",
+  //"https://www.yoursoftlab.com",
+  //"https://yoursoftlab-prog.github.io",
+  //"http://localhost:5500",
+  //"http://127.0.0.1:5500"
+//]);
 const ALLOWED_ORIGINS = new Set([
-  "https://yoursoftlab.com",
-  "https://www.yoursoftlab.com",
-  "https://yoursoftlab-prog.github.io",
-  "http://localhost:5500",
-  "http://127.0.0.1:5500"
-]);
+  "https://yoursoftlab-f7246.web.app",
+  "https://yoursoftlab-f7246.firebaseapp.com",
 
+  "https://audioclarity.in",
+  "https://www.audioclarity.in",
+
+  "http://localhost:5500",
+  "http://127.0.0.1:5500",
+  "http://localhost",
+  "http://127.0.0.1"
+]);
 const PREMIUM_PRICE_INR_PAISE = 19900; // ₹199.00
 const PREMIUM_PRICE_USD_CENTS = 199;   // $1.99
 
