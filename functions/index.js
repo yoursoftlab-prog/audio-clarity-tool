@@ -63,17 +63,37 @@ const ALLOWED_ORIGINS = new Set([
 const PREMIUM_PRICE_INR_PAISE = 19900; // ₹199.00
 const PREMIUM_PRICE_USD_CENTS = 199;   // $1.99
 
+//function withCors(req, res) {
+  //const origin = req.headers.origin;
+  //if (origin && ALLOWED_ORIGINS.has(origin)) {
+    //res.set("Access-Control-Allow-Origin", origin);
+  //}
+  //res.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  //res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
+  //if (req.method === "OPTIONS") { res.status(204).send(""); return true; }
+  //return false;
+//}
 function withCors(req, res) {
   const origin = req.headers.origin;
-  if (origin && ALLOWED_ORIGINS.has(origin)) {
-    res.set("Access-Control-Allow-Origin", origin);
+
+  if (!origin || !ALLOWED_ORIGINS.has(origin)) {
+    res.status(403).json({
+      error: "Unauthorized Origin"
+    });
+    return true;
   }
+
+  res.set("Access-Control-Allow-Origin", origin);
   res.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-  if (req.method === "OPTIONS") { res.status(204).send(""); return true; }
+
+  if (req.method === "OPTIONS") {
+    res.status(204).send("");
+    return true;
+  }
+
   return false;
 }
-
 // Verifies the Firebase ID token sent as "Authorization: Bearer <token>"
 // and returns the decoded token (with .uid), or null if missing/invalid.
 async function requireAuth(req, res) {
