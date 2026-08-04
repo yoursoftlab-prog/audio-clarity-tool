@@ -36,7 +36,7 @@ export const allowedHosts = [
 ];
 // Number of free enhancements a signed-in, non-premium account gets.
 // Tracked in Firestore at usage/{uid} — see the main app script.
-export const FREE_LIMIT = 5;
+export const FREE_LIMIT = 3;
 
 // Base URL of your deployed Cloud Functions (see functions/index.js).
 // Used for: creating Razorpay orders / Stripe Checkout sessions
