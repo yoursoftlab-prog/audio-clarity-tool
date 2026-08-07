@@ -84,35 +84,57 @@ export function isConfigured() {
     //}
   //});
 //}
+//export function runOriginGate() {
+    //const host = location.hostname;
+
+    //if (
+        //host === "localhost" ||
+        //host === "127.0.0.1" ||
+        //allowedHosts.includes(host)
+    //) {
+        //return;
+    //}
+
+    //document.addEventListener("DOMContentLoaded", () => {
+
+        //document.body.innerHTML = `
+        //<div style="
+            //position:fixed;
+            //inset:0;
+            //background:#0F172A;
+            //display:flex;
+            //align-items:center;
+            //justify-content:center;
+            //flex-direction:column;
+            //color:white;
+            //font-family:sans-serif;
+            //z-index:999999;">
+            //<h1>🚫 Unauthorized Copy</h1>
+            //<p>Please use the official Audio Clarity website.</p>
+       //</div>`;
+    //});
+
+    //throw new Error("Unauthorized Host");
+//}
 export function runOriginGate() {
     const host = location.hostname;
+
+    console.log("Current hostname:", host);
 
     if (
         host === "localhost" ||
         host === "127.0.0.1" ||
+        host === "yoursoftlab-f7246.web.app" ||
         allowedHosts.includes(host)
     ) {
         return;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.getElementById("unauthorized-overlay");
 
-        document.body.innerHTML = `
-        <div style="
-            position:fixed;
-            inset:0;
-            background:#0F172A;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            flex-direction:column;
-            color:white;
-            font-family:sans-serif;
-            z-index:999999;">
-            <h1>🚫 Unauthorized Copy</h1>
-            <p>Please use the official Audio Clarity website.</p>
-        </div>`;
+        if (overlay) {
+            overlay.style.display = "flex";
+        }
     });
-
-    throw new Error("Unauthorized Host");
 }
